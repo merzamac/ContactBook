@@ -1,16 +1,8 @@
 @extends('layouts/main')
 
 @section('content')
-    <div class="container mt-4">
+    <div >
         <h2>CRUD Contacts</h2>
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                <div class="card-body">
-                    <a href="{{ route('create') }}" class="btn btn-primary">Agregar</a>
-                </div>
-                </div>
-            </div>
-        </div>
+        <a href="{{ route('create') }}" class="btn btn-secundary mt-20">Agregar</a>
     </div>
 @endsection

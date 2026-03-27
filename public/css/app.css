@@ -1,0 +1,108 @@
+:root {
+    --primary: #2c3e50;
+    --success: #27ae60;
+    --danger: #dc6c6c;
+    --secundary: #5979ed;
+    --bg: #f4f7f6;
+}
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: var(--bg);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+.container {
+    background: white;
+    width: 100%;
+    max-width: 900px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.search-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+.search-section input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.flex-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.form-group {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+    min-width: 280px;
+}
+.full {
+    flex: 1 1 100%;
+}
+label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: var(--primary);
+}
+input,
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    color: white;
+}
+.btn-success {
+    background: var(--success);
+}
+.btn-secundary {
+    background: var(--secundary);
+}
+.btn-danger {
+    background: var(--danger);
+}
+.btn-search {
+    background: var(--primary);
+}
+.mt-20 {
+    margin-top: 20px;
+}
+.btn-submit {
+    background: var(--success);
+    color: white;
+    width: 100%;
+    margin-top: 25px;
+    font-size: 16px;
+}
+.hint {
+    font-size: 11px;
+    color: #7f8c8d;
+    margin-top: 4px;
+}
+a {
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+}
+.d-block {
+    display: block;
+}
