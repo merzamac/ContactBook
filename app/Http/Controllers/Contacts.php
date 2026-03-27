@@ -11,7 +11,8 @@ class Contacts extends Controller
      */
     public function index()
     {
-        return view('modules/contacts/index');
+        $items = Contact::paginate(2);
+        return view('modules/contacts/index', compact('items'));
     }
 
     /**
