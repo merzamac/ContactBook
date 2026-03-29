@@ -5,20 +5,24 @@
 @endsection
 @section('content')
 @include('layouts.menu')
-
-        <form action="{{ route('store') }}" method="POST" id="form-dinamico" class="mt-5">
+<div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Información del Contacto</h5>
+    </div>
+    <div class="card-body">
+        <form action="{{ route('store') }}" method="POST" id="form-dinamico" class="row g-3">
             @csrf
             @method('POST')  
             <div id="contenedor-flex" class="flex-form row">
                         {{-- Aquí se cargarán los campos mediante app.js --}}
             </div>
-
-            <div class="mt-3">
-                <button type="submit" class="btn btn-success">Agregar Contacto</button>
-                <a href="{{ route('index') }}" class="btn btn-secondary">Cancelar</a>
-            </div>
         </form>
-
+    </div>
+    <div class="card-footer text-end">
+        <button type="submit" class="btn btn-success">Agregar Contacto</button>
+        <a href="{{ route('index') }}" class="btn btn-secondary">Cancelar</a>
+    </div>
+</div>
 @endsection   
 @push('scripts')
 <script src="{{ asset('js/create.js') }}"></script>
