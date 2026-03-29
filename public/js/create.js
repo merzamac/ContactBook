@@ -1,21 +1,40 @@
 const CONFIG = {
     campos: [
-        { id: "cedula", label: "Cédula", tipo: "text" },
-        { id: "nombre", label: "Nombre", tipo: "text" },
-        { id: "apellido", label: "Apellido", tipo: "text" },
-        { id: "edad", label: "Edad", tipo: "number", min: 15, max: 90 },
+        { id: "cedula", label: "Cédula", tipo: "text", class: "input-group" },
+        { id: "nombre", label: "Nombre", tipo: "text", class: "input-group" },
+        {
+            id: "apellido",
+            label: "Apellido",
+            tipo: "text",
+            class: "input-group",
+        },
+        {
+            id: "edad",
+            label: "Edad",
+            tipo: "number",
+            min: 15,
+            max: 90,
+            class: "input-group",
+        },
         {
             id: "genero",
             label: "Género",
             tipo: "select",
             opciones: ["femenino", "masculino", "otros"],
+            class: "input-group",
         },
         {
             id: "telefono",
             label: "Teléfono (Formato: 0000-0000000)",
             tipo: "text",
+            class: "input-group",
         },
-        { id: "correo", label: "Correo Electrónico", tipo: "email" },
+        {
+            id: "correo",
+            label: "Correo Electrónico",
+            tipo: "email",
+            class: "input-group",
+        },
         {
             id: "estado_civil",
             label: "Estado Civil",
@@ -27,10 +46,22 @@ const CONFIG = {
                 "concubinato",
                 "viudo",
             ],
+            class: "input-group",
         },
-        { id: "direccion", label: "Dirección", tipo: "text", full: true },
-        { id: "departamento", label: "Departamento", tipo: "text" },
-        { id: "cargo", label: "Cargo", tipo: "text" },
+        {
+            id: "direccion",
+            label: "Dirección",
+            tipo: "text",
+            full: true,
+            class: "input-group",
+        },
+        {
+            id: "departamento",
+            label: "Departamento",
+            tipo: "text",
+            class: "input-group",
+        },
+        { id: "cargo", label: "Cargo", tipo: "text", class: "input-group" },
     ],
 };
 
@@ -53,7 +84,7 @@ function renderForm() {
                 ${c.min ? `min="${c.min}"` : ""} ${c.max ? `max="${c.max}"` : ""} required>`;
         }
 
-        div.innerHTML = `<label class="fw-bold">${c.label}</label>${inputHTML}`;
+        div.innerHTML = `<label class="form-label">${c.label}</label>${inputHTML}`;
         contenedor.appendChild(div);
     });
 }

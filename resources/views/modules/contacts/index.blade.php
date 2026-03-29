@@ -1,20 +1,20 @@
 @extends('layouts/main')
-
+@section('title', 'Contactos')
+@section('header')
+<h1>Contactos</h1>
+@endsection
 @section('content')
-    <div >
-        <h2>CRUD Contacts</h2>
-        <a href="{{ route('create') }}" class="btn btn-secundary mt-20">Agregar</a>
-        
-        <table class="contacts-table mt-20">
+        @include('layouts.menu')
+        <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Cedula</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Acciones</th>
+                        <th scope="col">Cedula</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="table-group-divider">
                     @forelse($items as $contact)
                     <tr>
                         <td>{{ $contact->cedula }}</td>
@@ -22,9 +22,9 @@
                         <td>{{ $contact->apellido }}</td>
                         <td>
                             <form action="" method="post">
-                                <a href="" class="btn btn-secundary">Mostrar</a>
-                                <a href="" class="btn btn-warning">Editar</a>
-                                <button class="btn btn-danger">Eliminar</button>
+                                <a href="" role="button" class="btn btn-info">Mostrar</a>
+                                <a href="" role="button" class="btn btn-warning">Editar</a>
+                                <button type="button" class="btn btn-danger">Eliminar</button>
                             </form>
                         </td>
                     </tr>
@@ -38,6 +38,5 @@
         
         <div class="pagination">
             {{ $items->links() }}
-        </div>
         </div>
 @endsection

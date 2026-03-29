@@ -1,21 +1,24 @@
 @extends('layouts/main')
 @section('title', 'Agregar Contacto')
+@section('header')
+<h2>Agregar Contacto</h2>
+@endsection
 @section('content')
-<div>
-    <h2>Agregar Contacto</h2>
-        <form action="{{ route('store') }}" method="POST" id="form-dinamico">
+@include('layouts.menu')
+
+        <form action="{{ route('store') }}" method="POST" id="form-dinamico" class="mt-5">
             @csrf
-                    
-            <div id="contenedor-flex" class="flex-form">
+            @method('POST')  
+            <div id="contenedor-flex" class="flex-form row">
                         {{-- Aquí se cargarán los campos mediante app.js --}}
             </div>
 
-            <div>
-                <button type="submit" class="btn-submit btn">Agregar Contacto</button>
-                <a href="{{ route('index') }}" class="btn btn-danger d-block mt-20">Cancelar</a>
+            <div class="mt-3">
+                <button type="submit" class="btn btn-success">Agregar Contacto</button>
+                <a href="{{ route('index') }}" class="btn btn-secondary">Cancelar</a>
             </div>
         </form>
-</div>
+
 @endsection   
 @push('scripts')
 <script src="{{ asset('js/create.js') }}"></script>
