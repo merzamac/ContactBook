@@ -10,13 +10,13 @@
             <h5 class="mb-0">Información del Contacto</h5>
     </div>
     <div class="card-body">
-        <form action="{{ route('store') }}" method="POST" id="form-dinamico" class="row g-3">
+        <form action="#" method="POST" id="form-dinamico" class="row g-3">
             @csrf
-            @method('POST')  
+            @method('PUT')  
         </form>
     </div>
     <div class="card-footer text-end">
-        <button type="submit" class="btn btn-success" >Agregar Contacto</button>
+        <button type="submit" class="btn btn-warning" >Actualizar Contacto</button>
         <a href="{{ route('index') }}" class="btn btn-secondary">Cancelar</a>
     </div>
 </div>
@@ -24,5 +24,3 @@
 @push('scripts')
 <script src="{{ asset('js/create.js') }}"></script>
 @endpush
-
-

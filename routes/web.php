@@ -10,6 +10,6 @@ Route::post('/store',[Contacts::class,'store'])->name('store');
 
 Route::get('/show/{id}',[Contacts::class,'show'])->name('show');
 
-Route::post('/update/{cedula}',[Contacts::class,'update'])->name('update');
+Route::post('/edit/{id}',[Contacts::class,'edit'])->name('edit');
 
 Route::get('/destroy/{id}',[Contacts::class,'destroy'])->name('destroy');
