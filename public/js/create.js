@@ -51,7 +51,7 @@ const CONFIG = {
         {
             id: "direccion",
             label: "Dirección",
-            tipo: "text",
+            tipo: "textarea",
             full: true,
             class: "input-group",
         },
@@ -66,7 +66,7 @@ const CONFIG = {
 };
 
 function renderForm() {
-    const contenedor = document.getElementById("contenedor-flex");
+    const contenedor = document.getElementById("form-dinamico");
     if (!contenedor) return;
 
     CONFIG.campos.forEach((c) => {
@@ -79,12 +79,15 @@ function renderForm() {
                 <option value="">Seleccione...</option>
                 ${c.opciones.map((o) => `<option value="${o}">${o}</option>`).join("")}
             </select>`;
+        } else if (c.tipo === "textarea") {
+            inputHTML = `<textarea type="${c.tipo}" name="${c.id}" id="${c.id}" class="form-control" 
+                ${c.min ? `min="${c.min}"` : ""} ${c.max ? `max="${c.max}"` : ""} required>`;
         } else {
             inputHTML = `<input type="${c.tipo}" name="${c.id}" id="${c.id}" class="form-control" 
                 ${c.min ? `min="${c.min}"` : ""} ${c.max ? `max="${c.max}"` : ""} required>`;
         }
 
-        div.innerHTML = `<label class="form-label">${c.label}</label>${inputHTML}`;
+        div.innerHTML = `<label class="form-label fw-bold">${c.label}</label>${inputHTML}`;
         contenedor.appendChild(div);
     });
 }

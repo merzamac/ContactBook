@@ -13,9 +13,6 @@
         <form action="{{ route('store') }}" method="POST" id="form-dinamico" class="row g-3">
             @csrf
             @method('POST')  
-            <div id="contenedor-flex" class="flex-form row">
-                        {{-- Aquí se cargarán los campos mediante app.js --}}
-            </div>
         </form>
     </div>
     <div class="card-footer text-end">
