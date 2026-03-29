@@ -7,3 +7,9 @@ Route::get('/', [Contacts::class, 'index']) -> name('index');
 Route::get('/create',[Contacts::class,'create'])->name('create');
 
 Route::post('/store',[Contacts::class,'store'])->name('store');
+
+Route::get('/show/{id}',[Contacts::class,'show'])->name('show');
+
+Route::post('/update/{cedula}',[Contacts::class,'update'])->name('update');
+
+Route::get('/destroy/{id}',[Contacts::class,'destroy'])->name('destroy');

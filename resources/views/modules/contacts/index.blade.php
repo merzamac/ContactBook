@@ -22,7 +22,7 @@
                         <td>{{ $contact->apellido }}</td>
                         <td>
                             <form action="" method="post">
-                                <a href="" role="button" class="btn btn-info">Mostrar</a>
+                                <a href="{{ route('show', $contact->id) }}" role="button" class="btn btn-info">Mostrar</a>
                                 <a href="" role="button" class="btn btn-warning">Editar</a>
                                 <button type="button" class="btn btn-danger">Eliminar</button>
                             </form>
