@@ -20,20 +20,17 @@
                         <td>{{ $contact->cedula }}</td>
                         <td>{{ $contact->nombre }}</td>
                         <td>{{ $contact->apellido }}</td>
-                        <td>
-                            <a href="{{ route('show', $contact->id) }}" role="button" class="btn btn-info">Mostrar</a>
-                            <a href="" role="button" class="btn btn-warning">Editar</a>
-                            <button 
-                                class="btn btn-danger"
-                                data-bs-toggle="modal" 
-                                data-bs-target="#confirmModal"
-                                onclick="openModal('modelConfirm','{{ route('delete', $contact->id) }}')">
-                                Eliminar
-                            </button>
+                        <td>   
                             <form action="" method="post">
                                 <a href="{{ route('show', $contact->id) }}" role="button" class="btn btn-info">Mostrar</a>
                                 <a href="{{ route('edit', $contact->id) }}" role="button" class="btn btn-warning">Editar</a>
-                                <button type="button" class="btn btn-danger">Eliminar</button>
+                                <button 
+                                    class="btn btn-danger"
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#confirmModal"
+                                    onclick="openModal('modelConfirm','{{ route('delete', $contact->id) }}')">
+                                    Eliminar
+                                </button>
                             </form>
                         </td>
                     </tr>
