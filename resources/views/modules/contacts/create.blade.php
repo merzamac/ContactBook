@@ -12,7 +12,7 @@
     <div class="card-body">
         <form action="{{ route('store') }}" method="POST" id="form-dinamico" class="row g-3">
             @csrf
-            @method('POST')  
+            @method('POST') 
         </form>
     </div>
     <div class="card-footer text-end">
@@ -24,5 +24,3 @@
 @push('scripts')
 <script src="{{ asset('js/create.js') }}"></script>
 @endpush
-
-

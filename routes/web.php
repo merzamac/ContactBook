@@ -12,4 +12,4 @@ Route::get('/show/{id}',[Contacts::class,'show'])->name('show');
 
 Route::post('/edit/{id}',[Contacts::class,'edit'])->name('edit');
 
-Route::get('/destroy/{id}',[Contacts::class,'destroy'])->name('destroy');
+Route::delete('/delete/{id}',[Contacts::class,'destroy'])->name('delete');
