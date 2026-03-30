@@ -45,7 +45,7 @@ class Contacts extends Controller
             'edad' => 'required|integer|between:15,90', // Regla del taller
             'genero' => 'required|in:femenino,masculino,otros',
             'telefono' => ['required', 'regex:/^[0-9]{4}-[0-9]{7}$/'], // Regla formato
-            'correo' => 'required|email',
+            'correo' => ['required', 'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/'],
             'estado_civil' => 'required|in:soltero,casado,divorciado,concubinato,viudo',
             'direccion' => 'required',
             'departamento' => 'required',
@@ -83,8 +83,23 @@ class Contacts extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+    
         $contact = Contact::findOrFail($id);
+        // Verificación de Laravel (Server-side)
+        $request->validate([
+            'cedula' => 'required|unique:contacts,cedula,' . $contact->id, // Cédula única excepto el actual
+            'nombre' => 'required|string|max:100',
+            'apellido' => 'required|string|max:100',
+            'edad' => 'required|integer|between:15,90', // Regla del taller
+            'genero' => 'required|in:femenino,masculino,otros',
+            'telefono' => ['required', 'regex:/^[0-9]{4}-[0-9]{7}$/'], // Regla formato
+            'correo' => ['required', 'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/'],
+            'estado_civil' => 'required|in:soltero,casado,divorciado,concubinato,viudo',
+            'direccion' => 'required',
+            'departamento' => 'required',
+            'cargo' => 'required',
+        ]);
+        
         $contact->nombre = $request->nombre;
         $contact->apellido = $request->apellido;
         $contact->edad = $request->edad;
