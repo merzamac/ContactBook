@@ -9,9 +9,18 @@ class Contacts extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $items = Contact::paginate(2);
+    public function index(Request $request)
+    {   $search = $request->input('search');
+        $items = Contact::query()
+        // Solo aplica el filtro si $search tiene un valor
+        ->when($search, function ($query, $search) {
+            return $query->where('cedula', 'LIKE', "%{$search}%")
+                         ->orWhere('nombre', 'LIKE', "%{$search}%")
+                         ->orWhere('apellido', 'LIKE', "%{$search}%");
+        })
+        ->paginate(2)
+        ->withQueryString(); // Mantiene el parámetro ?search=... al cambiar de página
+
         return view('modules/contacts/index', compact('items'));
     }
 

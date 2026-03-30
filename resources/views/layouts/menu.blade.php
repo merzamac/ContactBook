@@ -11,8 +11,8 @@
       </ul>
       {{-- Condición: Solo muestra el formulario si la ruta NO es 'create' --}}
       @if(request()->routeIs('index'))
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="V-00000000" aria-label="Search"/>
+      <form class="d-flex" role="search" action="{{ route('index') }}" method="GET">
+        <input name="search" class="form-control me-2" type="search" placeholder="V-00000000" aria-label="Search"/>
         <button class="btn btn-outline-success" type="submit">Buscar</button>
       </form>
       @endif
