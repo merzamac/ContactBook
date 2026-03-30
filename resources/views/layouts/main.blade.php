@@ -11,6 +11,7 @@
       @yield('header')
       @yield('content')
     </main>
+    @include("modules.modal")
     @stack('scripts')
   </body>
 </html>

@@ -12,4 +12,5 @@ Route::get('/show/{id}',[Contacts::class,'show'])->name('show');
 
 Route::get('/edit/{id}',[Contacts::class,'edit'])->name('edit');
 
+Route::delete('/delete/{id}',[Contacts::class,'destroy'])->name('delete');
 Route::put('/update/{id}',[Contacts::class,'update'])->name('update');
