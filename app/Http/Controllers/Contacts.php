@@ -65,6 +65,8 @@ class Contacts extends Controller
     public function edit(string $id)
     {
         //
+        $contact = Contact::findOrFail($id);
+        return view('modules/contacts/edit', compact('contact'));
     }
 
     /**
@@ -73,6 +75,19 @@ class Contacts extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $contact = Contact::findOrFail($id);
+        $contact->nombre = $request->nombre;
+        $contact->apellido = $request->apellido;
+        $contact->edad = $request->edad;
+        $contact->genero = $request->genero;
+        $contact->telefono = $request->telefono;
+        $contact->correo = $request->correo;
+        $contact->estado_civil = $request->estado_civil;
+        $contact->direccion = $request->direccion;
+        $contact->departamento = $request->departamento;
+        $contact->cargo = $request->cargo;
+        $contact->save();
+        return  to_route('index');
     }
 
     /**

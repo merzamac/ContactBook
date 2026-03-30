@@ -16,7 +16,7 @@
         </form>
     </div>
     <div class="card-footer text-end">
-        <button type="submit" class="btn btn-success" >Agregar Contacto</button>
+        <button type="submit" class="btn btn-success" form="form-dinamico" >Agregar Contacto</button>
         <a href="{{ route('index') }}" class="btn btn-secondary">Cancelar</a>
     </div>
 </div>
