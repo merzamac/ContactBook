@@ -6,7 +6,7 @@
     <title>CRUD Contacts - @yield('title', 'ContactBook')</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
   </head>
-  <body>
+  <body class="bg-light">
     <main class="container">
       @yield('header')
       @yield('content')
