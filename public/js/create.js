@@ -32,7 +32,7 @@ const CONFIG = {
         {
             id: "correo",
             label: "Correo Electrónico",
-            tipo: "email",
+            tipo: "text",
             class: "input-group",
         },
         {
@@ -105,7 +105,10 @@ document.getElementById("form-dinamico").onsubmit = function (e) {
     }
 
     // 2. Validar Formato Teléfono
-    if (!regexTel.test(telefono)) {
+    const arr = telefono.split("|");
+    const regex = /^\d{4}-\d{7}$/;
+    const valid = arr.map((f) => f.trim()).every((e) => regex.test(e));
+    if (!valid) {
         e.preventDefault();
         return alert("Formato de teléfono inválido. Use: 0000-0000000");
     }

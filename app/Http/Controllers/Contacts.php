@@ -36,7 +36,7 @@ class Contacts extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+    {   
         // Verificación de Laravel (Server-side)
         $request->validate([
             'cedula' => 'required|unique:contacts,cedula', // Cédula única
@@ -44,18 +44,17 @@ class Contacts extends Controller
             'apellido' => 'required|string|max:100',
             'edad' => 'required|integer|between:15,90', // Regla del taller
             'genero' => 'required|in:femenino,masculino,otros',
-            'telefono' => ['required', 'regex:/^[0-9]{4}-[0-9]{7}$/'], // Regla formato
-            'correo' => ['required', 'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/'],
+            'telefono' => ['required', 'regex:/^\d{4}-\d{7}( \| \d{4}-\d{7})?$/'], // Regla formato
+            'correo' => ['required', 'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}( \| [a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})?$/'],
             'estado_civil' => 'required|in:soltero,casado,divorciado,concubinato,viudo',
             'direccion' => 'required',
             'departamento' => 'required',
             'cargo' => 'required',
         ]);
 
-    // Si la validación pasa, guardamos en la DB
-    Contact::create($request->all());
-
-    return redirect()->route('index')->with('success', 'Contacto agregado correctamente.');
+        // Si la validación pasa, guardamos en la DB
+        Contact::create($request->all());
+        return redirect()->route('index')->with('success', 'Contacto agregado correctamente.');
     }
 
     /**
@@ -92,8 +91,8 @@ class Contacts extends Controller
             'apellido' => 'required|string|max:100',
             'edad' => 'required|integer|between:15,90', // Regla del taller
             'genero' => 'required|in:femenino,masculino,otros',
-            'telefono' => ['required', 'regex:/^[0-9]{4}-[0-9]{7}$/'], // Regla formato
-            'correo' => ['required', 'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/'],
+            'telefono' => ['required', 'regex:/^\d{4}-\d{7}( \| \d{4}-\d{7})?$/'], // Regla formato
+            'correo' => ['required', 'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}( \| [a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})?$/'],
             'estado_civil' => 'required|in:soltero,casado,divorciado,concubinato,viudo',
             'direccion' => 'required',
             'departamento' => 'required',

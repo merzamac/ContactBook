@@ -9,6 +9,7 @@
         <div class="card-header bg-primary text-white">
             <h5 class="mb-0">Información del Contacto</h5>
         </div>
+      
         <div class="card-body">
             <form class="row g-3">
                 <div class="col-md-6">
@@ -46,13 +47,15 @@
                 </div>
 
                 <div class="col-md-6">
-                    <label for="telefono" class="form-label fw-bold">Teléfono (Formato: 0000-0000000)</label>
-                    <input type="text" id="telefono" class="form-control" value={{ $contact->telefono }} readonly>
+                    <label for="telefono" class="form-label fw-bold">Teléfono </label>
+                    <input type="text" id="telefono" class="form-control" value="{{ $contact->telefono}}" readonly>
+
+                      
                 </div>
 
                 <div class="col-md-6">
                     <label for="correo" class="form-label fw-bold">Correo Electrónico</label>
-                    <input type="email" id="correo" class="form-control" value={{ $contact->correo }} readonly>
+                    <input type="email" id="correo" class="form-control" value="{{ $contact->correo }}" readonly>
                 </div>
 
                 <div class="col-md-6">
