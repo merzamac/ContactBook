@@ -45,13 +45,13 @@
                 </div>
 
                 <div class="col-md-6">
-                    <label for="telefono" class="form-label fw-bold" >Teléfono (Formato: 0000-0000000)</label>
-                    <input type="text" id="telefono" class="form-control" name="telefono" value={{ $contact->telefono }}>
+                    <label for="telefono" class="form-label fw-bold" >Teléfono (Formato: 0000-0000000 | 0000-0000000)</label>
+                    <input type="text" id="telefono" class="form-control" name="telefono" placeholder = "0000-0000000 | 0000-0000000" value="{{ $contact->telefono }}"">
                 </div>
 
                 <div class="col-md-6">
                     <label for="correo" class="form-label fw-bold" >Correo Electrónico</label>
-                    <input type="email" id="correo" class="form-control" name="correo" value={{ $contact->correo }}>
+                    <input type="text" id="correo" class="form-control" name="correo" placeholder="ej: ejemplo1@email.com | ejemplo2@email.com " value="{{ $contact->correo }}">
                 </div>
 
                 <div class="col-md-6">
